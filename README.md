@@ -6,14 +6,14 @@ The goal is to provide a streaming data visualization that shows a recent timefr
 ## Requirements
 
 1. streaming horizontal bar with all of the features of sparkline
-  1. thresholds
-  1. customizable colors per data point
+  1. with thresholds
+  1. and customizable colors per data point
 1. newer timeframes get more incremental space, historical is compressed
 1. relationship lines stay anchored to the time they had the relationship.
-  1. customizeable colors
-  1. widths are relative to their weight
+  1. with customizeable colors
+  1. and widths are relative to their weight
 1. detail information can be displayed in syntax highlighted json format above and/or below the bar charts
-  1. relationship arrow shows where on the timline it came from
+  1. with relationship arrow shows where on the timline it came from
   1. any other information that is displayed but not related to the stream of data is clearly connected/related to the original data
 1. numerical data aligned with each streaming bar that shows totals
 1. Everything needs to have a mind towards performance, and be able to run for 24 hours without any serious memory leaks.
