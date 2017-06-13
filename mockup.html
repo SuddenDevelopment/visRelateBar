@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="appMain">
+<head>
+	<title>scrolling bar mockup</title>
+	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+	<style>
+		html,body{margin:0;padding:0;}
+		div.bar{ border:1px solid #300; }
+		div.barDays{ width:2px; background-color:#600; }
+		div.barHours{ width:4px; background-color:#900; }
+		div.barMins{ width: 6px; background-color:#A00; }
+		div.barSecs{ width:8px; background-color:#F00; }
+	</style>
+</head>
+<body ng-controller='controllerMain'>
+<div layout="row" layout-align="begin end">
+	<div ng-repeat="intVal in arrDays" class="bar barDays" ng-style="{'height':intVal+'px'}"></div>
+	<div ng-repeat="intVal in arrHours" class="bar barHours" ng-style="{'height':intVal+'px'}"></div>
+	<div ng-repeat="intVal in arrMinutes" class="bar barMins" ng-style="{'height':intVal+'px'}"></div>
+	<div ng-repeat="intVal in arrSeconds" class="bar barSecs" ng-style="{'height':intVal+'px'}"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-aria.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js"></script>
+<script>
+var app = angular.module('appMain', ['ngMaterial']).config(function($mdThemingProvider) { $mdThemingProvider.theme('default').dark(); });
+app.controller('controllerMain', function($scope) {
+	$scope.arrDays=[]; $scope.arrHours=[]; $scope.arrMinutes=[]; $scope.arrSeconds=[];
+
+	for(i=0;i<60;i++){
+		var intVal=Math.random() * (100 - 1) + 1;
+		$scope.arrMinutes.push(intVal);
+		var intVal=Math.random() * (100 - 1) + 1;
+		$scope.arrSeconds.push(intVal);
+		if(i<24){
+			var intVal=Math.random() * (100 - 1) + 1;
+			$scope.arrHours.push(intVal);
+		}
+		if(i<7){
+			var intVal=Math.random() * (100 - 1) + 1;
+			$scope.arrDays.push(intVal);
+		}
+	}
+
+	//repeating stuff
+	var objRenderInterval = setInterval(function(){ 
+		
+		$scope.$evalAsync(); 
+	},1000);
+
+});
+</script>
+</body>
+</html>
