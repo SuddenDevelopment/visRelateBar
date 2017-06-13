@@ -13,12 +13,20 @@
 	</style>
 </head>
 <body ng-controller='controllerMain'>
+This mockup does NOT show needed things such as the labels, it's also not very efficient. Bars for aggregates are shown as avergaes for that timeframe. </br>
+showing 7 days, 24 hours, 60 minutes, 60 seconds
+</br>
+smaller timeframes have more emphasis, larger older timeframes fade into the distance on the left
+</br></br>
 <div layout="row" layout-align="begin end">
 	<div ng-repeat="intVal in arrDays" class="bar barDays" ng-style="{'height':intVal+'px'}"></div>
 	<div ng-repeat="intVal in arrHours" class="bar barHours" ng-style="{'height':intVal+'px'}"></div>
 	<div ng-repeat="intVal in arrMinutes" class="bar barMins" ng-style="{'height':intVal+'px'}"></div>
 	<div ng-repeat="intVal in arrSeconds" class="bar barSecs" ng-style="{'height':intVal+'px'}"></div>
 </div>
+javascript updates for this will look something like this:</br></br>
+bar.add({{arrSeconds[arrSeconds.length-1]}}); </br></br>
+and it will get the current timestamp itself and handle the rest.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-aria.min.js"></script>
