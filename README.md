@@ -23,3 +23,16 @@ The goal is to provide a streaming data visualization that shows a recent timefr
 1. numerical data aligned with each streaming bar that shows totals
 1. Everything needs to have a mind towards performance, and be able to run for 24 hours without any serious memory leaks.
 
+
+## Bar chart drawing logic
+
+1 bar for each minute
+when the chart is updated each second, it will show up to 60 seconds
+there will never be more than 
+24 1 hour bars
+60 minute bars
+60 second bars
+each one will show avergae rate per second and can show less if there not enough room or data
+priority if there's not enough room is to show all seconds, some minutes, fewer hours
+seconds always higher priority / bar width / brighter than minutes and minutes higher priority than hours
+
